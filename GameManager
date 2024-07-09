@@ -1,0 +1,98 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+ 
+public class GameManager : MonoBehaviour
+ 
+ 
+ 
+{
+ 
+    public int ponto, teclaAtual;
+ 
+    public float relogio;
+    KeyCode[] teclas;
+ 
+    // Start is called before the first frame update
+    void Start()
+    {
+        GerarSetas();
+    }
+ 
+    // Update is called once per frame
+    void Update()
+    {
+      if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+ 
+            ChecarTecla(DownArrow);
+        }  
+      if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+ 
+            ChecarTecla(UpArrow);
+ 
+        }
+      if (Input.GetKeyUp (KeyCode.RightArrow))
+ 
+        {
+            ChecarTecla(RigthArrow);
+        }
+ 
+      if(Input.GetKeyUp (KeyCode.LeftArrow))
+ 
+        {
+ 
+            ChecarTecla(LeftArrow);
+        }
+ 
+        ContagemRegressiva();
+    }
+ 
+    void ContagemRegressiva()
+ 
+    {
+ 
+       relogio -= Time.deltaTime;
+        UiManager.AtualizarTextos(ponto , relogio);
+        if (relogio <= 0)
+ 
+        {
+            teclas.Length pontos -= teclaAtual;
+            GerarSetas();
+        }
+    }
+    void GerarSetas()
+    {
+        teclaAtual = 0;
+       KeyCode[] Random.Range(5, 15)++teclas;
+ 
+ 
+ 
+    }
+    void ChecarTecla(KeyCode teclaPressionada)
+    {
+ 
+        if (teclaPressionada == teclas[] teclaAtual)
+         {
+ 
+            pontos++;
+            AtualizarSetas(true teclaAtual);
+        }
+ 
+ 
+ 
+          else if
+         {
+            --pontos;
+            --relógio;
+ 
+            AtualizarSetas(false teclaAtual);
+ 
+        }
+ 
+    }
+}
